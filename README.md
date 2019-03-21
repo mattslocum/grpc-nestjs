@@ -1,8 +1,7 @@
-# spotx-web-profile
+# gprc-nestjs
 
 ## Description
-Borrowed initial work from https://github.com/nestjs/nest/tree/93ae488/sample/04-grpc
-
+Uses GPRC with NestJS
 
 ## Installation
 
@@ -21,6 +20,10 @@ $ npm run start:dev
 
 # production mode
 $ npm run start:prod
+```
+
+```
+grpcurl -plaintext -proto ./counter.proto -import-path ./protos 127.0.0.1:5000 counter.CounterService/Add
 ```
 
 ## Test

@@ -1,5 +1,5 @@
 {
-  "name": "spotx-web-profile",
+  "name": "gprc-nestjs",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -20,14 +20,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mattslocum/spotx-web-profile.git"
+    "url": "git+https://github.com/mattslocum/gprc-nestjs.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/mattslocum/spotx-web-profile/issues"
+    "url": "https://github.com/mattslocum/gprc-nestjs/issues"
   },
-  "homepage": "https://github.com/mattslocum/spotx-web-profile#readme",
+  "homepage": "https://github.com/mattslocum/gprc-nestjs#readme",
   "dependencies": {
     "@grpc/proto-loader": "^0.4.0",
     "@nestjs/common": "^6.0.1",
