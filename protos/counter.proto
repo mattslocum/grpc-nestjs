@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package counter;
+
+service CounterService {
+  rpc Add (Empty) returns (CountResponse) {}
+  rpc Subtract (Empty) returns (CountResponse) {}
+}
+
+message Empty {}
+
+message CountResponse {
+  int32 count = 1;
+}
