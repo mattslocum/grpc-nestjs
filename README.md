@@ -1,7 +1,7 @@
-# gprc-nestjs
+# grpc-nestjs
 
 ## Description
-Uses GPRC with NestJS
+Uses GRPC with NestJS
 
 ## Installation
 

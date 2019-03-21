@@ -1,5 +1,5 @@
 {
-  "name": "gprc-nestjs",
+  "name": "grpc-nestjs",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -20,14 +20,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mattslocum/gprc-nestjs.git"
+    "url": "git+https://github.com/mattslocum/grpc-nestjs.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/mattslocum/gprc-nestjs/issues"
+    "url": "https://github.com/mattslocum/grpc-nestjs/issues"
   },
-  "homepage": "https://github.com/mattslocum/gprc-nestjs#readme",
+  "homepage": "https://github.com/mattslocum/grpc-nestjs#readme",
   "dependencies": {
     "@grpc/proto-loader": "^0.4.0",
     "@nestjs/common": "^6.0.1",
