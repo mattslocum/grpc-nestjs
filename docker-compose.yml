@@ -1,0 +1,21 @@
+version: '3'
+services:
+  node-server:
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+    volumes:
+      - ./:/server
+    ports:
+      - "3000:3000"
+      - "5000:5000"
+  envoy:
+    build:
+      context: ./envoy
+      dockerfile: ./Dockerfile`
+    volumes:
+      - ./envoy/envoy.yaml:/etc/envoy/envoy.yaml
+    ports:
+      - "8080:8080"
+    links:
+      - node-server

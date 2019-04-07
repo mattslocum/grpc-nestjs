@@ -2,3 +2,4 @@ syntax = "proto3";
 
 import "hero.proto";
 import "counter.proto";
+import "circles.proto";

@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package circles;
+
+service CirclesService {
+  rpc Add (CircleData) returns (Empty) {}
+  rpc Listen (Empty) returns (stream CircleData) {}
+}
+
+message Empty {}
+
+message CircleData {
+  int32 x = 1;
+  int32 y = 2;
+  int32 color = 3;
+}

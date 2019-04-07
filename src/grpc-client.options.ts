@@ -5,7 +5,7 @@ export const grpcClientOptions: ClientOptions = {
   transport: Transport.GRPC,
   options: {
     url: '0.0.0.0:5000',
-    package: 'counter',
+    package: 'circles',
     protoPath: join(__dirname, '../protos/all.proto'),
     // protoPath: '/hero.proto',
     // loader: {

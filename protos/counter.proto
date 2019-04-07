@@ -5,6 +5,7 @@ package counter;
 service CounterService {
   rpc Add (Empty) returns (CountResponse) {}
   rpc Subtract (Empty) returns (CountResponse) {}
+  rpc Listen (Empty) returns (stream CountResponse) {}
 }
 
 message Empty {}
