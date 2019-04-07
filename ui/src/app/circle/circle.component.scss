@@ -1,0 +1,31 @@
+.ring, .light {
+  display: block;
+  position: absolute;
+  box-sizing: border-box;
+  width: 600px;
+  height: 600px;
+  border-radius: 300px;
+  opacity: 0;
+  backface-visibility: hidden;
+  perspective: 1000;
+  transform: translateZ(0);
+}
+
+.ring {
+  border-width: 200px;
+  border-style: solid;
+}
+.ring.c1 { border-color: #FF3D7F; }
+.ring.c2 { border-color: #FF9E9D; }
+.ring.c3 { border-color: #DAD8A7; }
+.ring.c4 { border-color: #7FC7AF; }
+.ring.c5 { border-color: #3FB8AF; }
+
+.light {
+  background-image: radial-gradient(
+      circle farthest-side,
+      rgba(255, 255, 255, 1) 0%,
+      rgba(255, 255, 255, 0.1) 30%,
+      rgba(255, 255, 255, 0) 100%
+  );
+}

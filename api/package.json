@@ -1,0 +1,54 @@
+{
+  "name": "grpc-nestjs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
+    "start": "ts-node -r tsconfig-paths/register src/main.ts",
+    "start:dev": "nodemon",
+    "start:debug": "nodemon --config nodemon-debug.json",
+    "prestart:prod": "npm run build",
+    "start:prod": "node dist/main.js",
+    "lint": "tslint -p tsconfig.json -c tslint.json",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:cov": "jest --coverage",
+    "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
+    "test:e2e": "jest --config ./test/jest-e2e.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mattslocum/grpc-nestjs.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mattslocum/grpc-nestjs/issues"
+  },
+  "homepage": "https://github.com/mattslocum/grpc-nestjs#readme",
+  "dependencies": {
+    "@grpc/proto-loader": "^0.4.0",
+    "@nestjs/common": "^6.0.1",
+    "@nestjs/core": "^6.0.1",
+    "@nestjs/microservices": "^6.0.1",
+    "@nestjs/platform-express": "^6.0.1",
+    "class-transformer": "^0.2.0",
+    "class-validator": "^0.9.1",
+    "grpc": "^1.19.0",
+    "reflect-metadata": "^0.1.13",
+    "rxjs": "^6.4.0"
+  },
+  "devDependencies": {
+    "@nestjs/testing": "^6.0.1",
+    "@types/node": "^11.11.4",
+    "jest": "^24.5.0",
+    "nodemon": "^1.18.10",
+    "ts-jest": "^24.0.0",
+    "ts-node": "^8.0.3",
+    "tsconfig-paths": "^3.8.0",
+    "tslint": "^5.14.0",
+    "typescript": "^3.3.4000"
+  }
+}

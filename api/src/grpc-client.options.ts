@@ -6,7 +6,7 @@ export const grpcClientOptions: ClientOptions = {
   options: {
     url: '0.0.0.0:5000',
     package: 'circles',
-    protoPath: join(__dirname, '../protos/all.proto'),
+    protoPath: join(__dirname, '../../protos/all.proto'),
     // protoPath: '/hero.proto',
     // loader: {
     //   keepCase: true,
