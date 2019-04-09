@@ -1,5 +1,5 @@
-import {CounterServiceClient} from "../../../protos/counter_pb_service";
-import {Empty} from '../../../protos/counter_pb';
+import {CounterServiceClient} from "../../protos/counter_pb_service";
+import {Empty} from '../../protos/counter_pb';
 import {Injectable} from "@angular/core";
 
 @Injectable()

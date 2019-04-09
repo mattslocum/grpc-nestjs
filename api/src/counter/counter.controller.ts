@@ -8,10 +8,6 @@ interface CounterService {
   subtract(): number;
 }
 
-interface ICount {
-  count: number;
-}
-
 @Controller()
 export class CounterController implements OnModuleInit {
   @Client(grpcClientOptions)

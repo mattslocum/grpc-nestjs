@@ -1,12 +1,7 @@
 import {Component, HostListener, OnInit} from '@angular/core';
 import {Observable} from "rxjs";
 import {CirclesService} from "../CirclesService";
-
-export interface ICircle {
-  x: number;
-  y: number;
-  color?: number;
-}
+import {CircleData} from "../../../protos/circles_pb";
 
 @Component({
   selector: 'circles',
@@ -14,7 +9,7 @@ export interface ICircle {
   styleUrls: ['./circles.component.scss']
 })
 export class CirclesComponent implements OnInit {
-  circles$: Observable<ICircle[]>;
+  circles$: Observable<CircleData.AsObject[]>;
 
   constructor(private circlesService: CirclesService) { }
 

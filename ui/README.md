@@ -15,10 +15,6 @@ Run `ng generate component component-name` to generate a new component. You can 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
 ```
-protoc --plugin="protoc-gen-ts=./node_modules/.bin/protoc-gen-ts" --proto_path=../grpc-nestjs/protos circles.proto --js_out=import_style=commonjs:../grpc-ui/protos --ts_out=service=true:../grpc-ui/protos --grpc-web_out=import_style=commonjs,mode=grpcwebtext:protos
-```
-
-```
 docker build -f Dockerfile-prod -t nexus.spotxchange.com/dev/grpc-ui:0.1 .
 docker push nexus.spotxchange.com/dev/grpc-ui:0.1
 

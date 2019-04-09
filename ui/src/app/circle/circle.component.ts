@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {animate, group, style, transition, trigger} from "@angular/animations";
-import {ICircle} from "../circles/circles.component";
+import {CircleData} from "../../../protos/circles_pb";
 
 // Borrowed circles from http://teropa.info/chime/
 
@@ -34,7 +34,7 @@ import {ICircle} from "../circles/circles.component";
   ]
 })
 export class CircleComponent implements OnInit {
-  @Input() config: ICircle;
+  @Input() config: CircleData.AsObject;
 
   constructor() { }
 

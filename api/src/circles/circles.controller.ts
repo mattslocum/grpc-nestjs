@@ -2,24 +2,15 @@ import {Controller, OnModuleInit} from '@nestjs/common';
 import { Client, ClientGrpc, GrpcMethod } from '@nestjs/microservices';
 import { grpcClientOptions } from '../grpc-client.options';
 import {Observable, Subject} from "rxjs";
-
-interface CirclesService {
-  add(): number;
-  subtract(): number;
-}
-
-interface ICircleData {
-  x: number;
-  y: number;
-  color: number;
-}
+import {CircleData} from "../../../protos/circles_pb";
+import {CirclesService} from "../../../protos/circles_pb_service";
 
 @Controller()
 export class CirclesController implements OnModuleInit {
   @Client(grpcClientOptions)
   private readonly client: ClientGrpc;
 
-  private dataSubject = new Subject<ICircleData>();
+  private dataSubject = new Subject<CircleData>();
 
   private service: CirclesService;
 
@@ -28,12 +19,12 @@ export class CirclesController implements OnModuleInit {
   }
 
   @GrpcMethod('CirclesService')
-  add(circle: ICircleData): void {
+  add(circle: CircleData): void {
     this.dataSubject.next(circle);
   }
 
   @GrpcMethod('CirclesService')
-  listen(): Observable<ICircleData> {
+  listen(): Observable<CircleData> {
     return this.dataSubject.asObservable();
   }
 }

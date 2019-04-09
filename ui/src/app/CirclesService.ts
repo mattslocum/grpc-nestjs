@@ -1,21 +1,20 @@
-import {Empty} from '../../../protos/counter_pb';
+import {Empty} from '../../protos/counter_pb';
 import {Injectable} from "@angular/core";
-import {ICircle} from "./circles/circles.component";
-import {CircleData} from "../../../protos/circles_pb";
+import {CircleData} from "../../protos/circles_pb";
 import {Observable, Subject} from "rxjs";
 import {bufferTime} from "rxjs/operators";
-import {CirclesServiceClient} from "../../../protos/circles_pb_service";
+import {CirclesServiceClient} from "../../protos/circles_pb_service";
 
 @Injectable()
 export class CirclesService {
   private service: CirclesServiceClient;
-  private circleSubject = new Subject<ICircle>();
+  private circleSubject = new Subject<CircleData.AsObject>();
 
   constructor() {
-    this.service = new CirclesServiceClient('http://localhost:8080');
+    this.service = new CirclesServiceClient('https://grpc-proxy.lod.spotx.tv');
   }
 
-  add(circleRaw: ICircle) {
+  add(circleRaw: CircleData.AsObject) {
     const circle = new CircleData();
     circle.setX(circleRaw.x);
     circle.setY(circleRaw.y);
@@ -25,15 +24,8 @@ export class CirclesService {
       circle, null,
       (err: any, response: any) => {
         if (err) {
-          // if (err.code !== grpcWeb.StatusCode.OK) {
-          //   EchoApp.addRightMessage(
-          //     'Error code: ' + err.code + ' "' + err.message + '"');
-          // }
           console.error(err);
         } else {
-          // setTimeout(() => {
-          //   EchoApp.addRightMessage(response.getMessage());
-          // }, EchoApp.INTERVAL);
           console.log('add response', response);
         }
       });
@@ -42,17 +34,13 @@ export class CirclesService {
     // });
   }
 
-  listen(): Observable<ICircle[]> {
+  listen(): Observable<CircleData.AsObject[]> {
     const request = new Empty();
     const call = this.service.listen(request);
 
-    call.on('data', (data) => {
-      console.log('listen data', data);
-      this.circleSubject.next({
-        x: data.getX(),
-        y: data.getY(),
-        color: data.getColor(),
-      });
+    call.on('data', (circle) => {
+      console.log('listen data', circle);
+      this.circleSubject.next(circle.toObject());
     });
     call.on('end', () => {
       // The server has finished sending
